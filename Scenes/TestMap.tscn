@@ -1,0 +1,52 @@
+[gd_scene load_steps=7 format=4 uid="uid://dqs5vmmwpviq3"]
+
+[ext_resource type="Script" uid="uid://dm1l31kmk2gnl" path="res://Scripts/Class/TileMapContainer.gd" id="1_n6t57"]
+[ext_resource type="TileSet" uid="uid://dms3h8m6hio5y" path="res://Tiles/TestTiles/TestMap.tres" id="2_xh66l"]
+[ext_resource type="Script" uid="uid://bi27r487i18a4" path="res://Scripts/Class/Equipment.gd" id="3_n6t57"]
+
+[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_n6t57"]
+load_path = "res://.godot/imported/0.png-916268512c6eaa3ab492464a9c316aef.ctex"
+
+[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_qg828"]
+load_path = "res://.godot/imported/1.png-31e974b58831ca45bf74ed85f4fd918b.ctex"
+
+[sub_resource type="AnimatedTexture" id="AnimatedTexture_e11n1"]
+frames = 2
+pause = true
+frame_0/texture = SubResource("CompressedTexture2D_n6t57")
+frame_0/duration = 0.1
+frame_1/texture = SubResource("CompressedTexture2D_qg828")
+frame_1/duration = 0.1
+
+[node name="Node2D" type="Node2D"]
+
+[node name="TileMapContainer" type="Node2D" parent="." node_paths=PackedStringArray("tiles")]
+script = ExtResource("1_n6t57")
+tile_set = ExtResource("2_xh66l")
+tiles = {
+0: NodePath("TileMapLayer")
+}
+
+[node name="TileMapLayer" type="TileMapLayer" parent="TileMapContainer"]
+y_sort_enabled = true
+texture_filter = 1
+tile_map_data = PackedByteArray("AAD+/wkAAAABAAAAAAACAPr/AAABAAAAAAACAPv/AAABAAAAAAADAPz/AAABAAAAAAADAP3/AAABAAAAAAAEAP7/AAABAAAAAAAEAP//AAABAAAAAAAEAAAAAAABAAAAAAADAAEAAAABAAAAAAADAAIAAAABAAAAAAACAAMAAAADAAAAAAACAAQAAAADAAAAAAABAAYAAAADAAAAAAAAAAcAAAADAAAAAAAAAAgAAAABAAAAAAD//wkAAAABAAAAAAD//woAAAABAAAAAAD+/wsAAAABAAAAAAD+/woAAAABAAAAAAD+/wgAAAABAAAAAAD9/wcAAAABAAAAAAD9/wYAAAABAAAAAAD8/wcAAAABAAAAAAD9/wgAAAABAAAAAAD9/wkAAAABAAAAAAD8/wUAAAABAAAAAAD8/wQAAAABAAAAAAD7/wUAAAABAAAAAAD8/wYAAAABAAAAAAD7/wQAAAABAAAAAAD7/wMAAAABAAAAAAD7/wIAAAABAAAAAAD6/wMAAAABAAAAAAD7/wEAAAABAAAAAAD8/wAAAAABAAAAAAD9//7/AAADAAAAAAD9//3/AAADAAAAAAD+//z/AAADAAAAAAD+//v/AAADAAAAAAD///r/AAABAAAAAAD///n/AAABAAAAAAAAAPj/AAABAAAAAAAAAPf/AAABAAAAAAABAPj/AAABAAAAAAABAPn/AAABAAAAAAADAP7/AAABAAAAAAADAP//AAABAAAAAAADAAAAAAABAAAAAAACAP//AAABAAAAAAACAAAAAAABAAAAAAABAAEAAAADAAAAAAACAAIAAAADAAAAAAACAAEAAAABAAAAAAABAAMAAAADAAAAAAABAAQAAAADAAAAAAAAAAUAAAADAAAAAAAAAAYAAAADAAAAAAD//wcAAAABAAAAAAD//wgAAAABAAAAAAD+/wcAAAABAAAAAAD+/wYAAAABAAAAAAD+/wUAAAABAAAAAAD//wQAAAADAAAAAAD//wMAAAADAAAAAAAAAAIAAAADAAAAAAAAAAEAAAADAAAAAAABAAAAAAADAAAAAAABAAIAAAADAAAAAAAAAAMAAAADAAAAAAAAAAQAAAADAAAAAAD//wUAAAADAAAAAAD//wYAAAABAAAAAAD9/wUAAAABAAAAAAD9/wQAAAABAAAAAAD9/wMAAAABAAAAAAD+/wEAAAADAAAAAAD//wAAAAADAAAAAAD/////AAADAAAAAAD//wEAAAADAAAAAAD//wIAAAADAAAAAAD+/wMAAAADAAAAAAD+/wQAAAABAAAAAAAAAP7/AAADAAAAAAAAAP3/AAABAAAAAAABAPz/AAABAAAAAAABAP3/AAABAAAAAAABAP7/AAABAAAAAAABAP//AAABAAAAAAAAAP//AAADAAAAAAAAAAAAAAADAAAAAAD///7/AAADAAAAAAD///3/AAADAAAAAAAAAPz/AAABAAAAAAACAPz/AAABAAAAAAACAP3/AAABAAAAAAACAP7/AAABAAAAAAABAPv/AAABAAAAAAABAPr/AAABAAAAAAAAAPn/AAABAAAAAAAAAPr/AAABAAAAAAAAAPv/AAABAAAAAAD///v/AAABAAAAAAD///z/AAADAAAAAAD+//3/AAADAAAAAAD+//7/AAADAAAAAAD9////AAADAAAAAAD+////AAADAAAAAAD+/wAAAAADAAAAAAD9/wIAAAABAAAAAAD8/wEAAAABAAAAAAD8/wIAAAABAAAAAAD8/wMAAAABAAAAAAD8////AAADAAAAAAD9/wAAAAADAAAAAAD9/wEAAAADAAAAAAD+/wIAAAADAAAAAAABAAUAAAADAAAAAAA=")
+tile_set = ExtResource("2_xh66l")
+
+[node name="Equipment" type="Node2D" parent="TileMapContainer" node_paths=PackedStringArray("tlc")]
+z_index = 1
+position = Vector2(0, -80)
+script = ExtResource("3_n6t57")
+tlc = NodePath("..")
+pos = Vector3(0, 5, 0)
+accelation = Vector3(0, 0, -0.005)
+metadata/_custom_type_script = "uid://bi27r487i18a4"
+
+[node name="Sprite2D" type="Sprite2D" parent="TileMapContainer/Equipment"]
+texture_filter = 1
+position = Vector2(0, -15)
+texture = SubResource("AnimatedTexture_e11n1")
+
+[node name="Camera2D" type="Camera2D" parent="."]
+position = Vector2(0, -10)
+zoom = Vector2(2, 2)

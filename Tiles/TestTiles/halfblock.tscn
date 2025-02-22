@@ -1,0 +1,10 @@
+[gd_scene load_steps=2 format=3 uid="uid://2gatgbdox3i7"]
+
+[ext_resource type="Texture2D" uid="uid://bgao6udvhuqj4" path="res://Tiles/TestTiles/TestTiles.png" id="1_kcy3r"]
+
+[node name="halfblock" type="Sprite2D"]
+texture_filter = 1
+texture = ExtResource("1_kcy3r")
+offset = Vector2(0, -8)
+region_enabled = true
+region_rect = Rect2(98, 0, 32, 32)
